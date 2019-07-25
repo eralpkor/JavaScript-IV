@@ -30,6 +30,13 @@ class Instructor extends Person {
   grade(student, subject) {
     return `${student.name} receives a perfect score on ${subject}.`;
   }
+
+  randomGrades(student) {
+    // generate random test scores
+    let randomNumbers = Math.floor(Math.random() * 100);
+
+    return `${student.name} just got ${randomNumbers} on ${student.gender === 'F' ? 'Her' : 'His'} project.`;
+  }
 }
 
 // Student class
@@ -71,13 +78,6 @@ class ProjectManagers extends Instructor {
 
   debugsCode(student, subject) {
     return `${this.name} debugs ${student.name}'s code on ${subject}.`;
-  }
-
-  randomGrades(student) {
-    // generate random test scores
-    let randomNumbers = Math.floor(Math.random() * 100);
-
-    return `${student.name} just got ${randomNumbers} on ${student.gender === 'F' ? 'Her' : 'His'} project.`;
   }
 }
 
@@ -174,14 +174,14 @@ const tom = new ProjectManagers({
   catchPhrase: "Go get it!"
 });
 
-console.log(`${mike.catchPhrase}`);
-console.log(`${sherry.location}`);
+console.log(`${mike.name}'s phrase is ${mike.catchPhrase}`);
+console.log(`${sherry.name} lives in ${sherry.location}`);
 console.log(`${tom.speak()}`);
 console.log(`${susan.listsSubjects()}`);
 console.log(`${jane.listsSubjects()}`);
-console.log(`${susan.PRAssignment('JS')}`);
+console.log(`${susan.PRAssignment('JavaScript')}`);
 console.log(`${jane.sprintChallenge('User Interface and Git')}`);
-console.log(`${fred.grade(susan, "Pre-processors")}`);
+console.log(`${fred.grade(susan, "LESS")}`);
 console.log(`${eralp.listsSubjects()}`);
 console.log(`${mike.demo('JavaScript-IV')}`);
 
